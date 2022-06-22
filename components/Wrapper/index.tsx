@@ -1,24 +1,10 @@
-import { View, Text, ImageBackground, Button, TouchableWithoutFeedback } from 'react-native'
+import { View, Text, ImageBackground, TouchableWithoutFeedback } from 'react-native'
 import Icon from "@expo/vector-icons/MaterialCommunityIcons"
 import React, { useRef } from 'react'
 import style from './style'
 
 const index = (props: any) => {
   const { children, title, subtitle, navigation } = props;
-
-  const navigationView = () => (
-    <ImageBackground
-      source={require("../../assets/images/back2.png")}
-      style={{ width: "100%", height: "100%" }}>
-      <View style={[style.drawerContainer]}>
-        <Text style={style.drawerParagraph}>I'm in the Drawer!</Text>
-        <Button
-          title="Close drawer"
-          onPress={() => navigation.closeDrawer()}
-        />
-      </View>
-    </ImageBackground>
-  );
 
   return (
     <ImageBackground
