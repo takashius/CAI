@@ -1,4 +1,4 @@
-import { View, Text, ImageBackground, DrawerLayoutAndroid, Button, TouchableWithoutFeedback } from 'react-native'
+import { View, Text, ImageBackground, Button, TouchableWithoutFeedback } from 'react-native'
 import Icon from "@expo/vector-icons/MaterialCommunityIcons"
 import React, { useRef } from 'react'
 import style from './style'
