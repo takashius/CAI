@@ -15,8 +15,10 @@ import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
+import Login from '../screens/Auth/Login';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -37,12 +39,28 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 function RootNavigator() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
+      <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+      <Stack.Screen name="Root" component={DrawerNavigation} options={{ headerShown: false }} />
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
     </Stack.Navigator>
   );
+}
+
+const Drawer = createDrawerNavigator();
+
+function DrawerNavigation() {
+    return (
+        <Drawer.Navigator 
+        initialRouteName="Home"
+        screenOptions={{
+            headerShown:false,
+        }}
+        >
+            <Drawer.Screen name="Home" component={BottomTabNavigator} />
+        </Drawer.Navigator>
+    )
 }
 
 /**

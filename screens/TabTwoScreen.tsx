@@ -75,10 +75,10 @@ const alumnos = [
   },
 ]
 
-export default function TabTwoScreen() {
-
+export default function TabTwoScreen(props: any) {
+  const {navigation} = props;
   return (
-    <Wrapper title={'Alumnos'} subtitle2={'Lorem ipsun dolor sit ammet'}>
+    <Wrapper title={'Alumnos'} subtitle2={'Lorem ipsun dolor sit ammet'} navigation={navigation}>
       <Text style={styles.title}>Listado</Text>
       <DataTable>
         <DataTable.Header>
