@@ -16,6 +16,9 @@ import ModalScreen from '../screens/ModalScreen';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import Login from '../screens/Auth/Login';
+
+import DrawerCustom from './DrawerCustom';
+
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -57,6 +60,7 @@ function DrawerNavigation() {
         screenOptions={{
             headerShown:false,
         }}
+        drawerContent={props => <DrawerCustom {...props} />}
         >
             <Drawer.Screen name="Home" component={BottomTabNavigator} />
         </Drawer.Navigator>
