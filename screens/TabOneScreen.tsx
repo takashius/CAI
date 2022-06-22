@@ -1,16 +1,15 @@
 import { StyleSheet } from 'react-native';
 
-import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 
+import Wrapper from '../components/Wrapper';
+
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="/screens/TabOneScreen.tsx" />
-    </View>
+    <Wrapper title={'Home'} subtitle2={'Lorem ipsun dolor sit ammet'}>
+        <Text style={styles.title}>Tab One</Text>
+    </Wrapper>
   );
 }
 
