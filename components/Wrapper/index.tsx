@@ -5,7 +5,7 @@ import style from './style'
 import Colors from '../../constants/Colors'
 
 const index = (props: any) => {
-  const { children, title, subtitle, navigation, save, edit } = props;
+  const { children, title, subtitle, navigation, back, save, edit } = props;
 
   return (
     <ImageBackground
@@ -13,9 +13,15 @@ const index = (props: any) => {
       style={{ width: "100%", height: "100%" }}>
       <View style={style.menu}>
         <View>
-          <TouchableWithoutFeedback onPress={() => { navigation.openDrawer() }}>
-            <Icon name="menu" size={30} color={Colors.cai.button} style={{ width: 20 }} />
-          </TouchableWithoutFeedback>
+          {back ?
+            <TouchableWithoutFeedback onPress={() => { navigation.goBack() }}>
+              <Icon name="arrow-left" size={30} color={Colors.cai.button} />
+            </TouchableWithoutFeedback>
+            :
+            <TouchableWithoutFeedback onPress={() => { navigation.openDrawer() }}>
+              <Icon name="menu" size={30} color={Colors.cai.button} style={{ width: 20 }} />
+            </TouchableWithoutFeedback>
+          }
         </View>
         <View style={style.title}>
           <Text style={style.titleText}>{title}</Text>

@@ -59,6 +59,10 @@ const Alumnos = (props: any) => {
     });
   }
 
+  const navigateToAdd = () => {
+    navigation.navigate('FormAlumnos')
+  }
+
   const renderItem = (alumno: any) => {
     return (<ItemAlumno item={alumno.item} onSelect={navigateToDetail} />)
   }
@@ -73,7 +77,7 @@ const Alumnos = (props: any) => {
       <FAB
         icon="plus"
         style={styles.fab}
-        onPress={() => console.log('Pressed')}
+        onPress={() => navigateToAdd()}
       />
     </Wrapper>
   )
