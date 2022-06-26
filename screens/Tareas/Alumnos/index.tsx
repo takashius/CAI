@@ -1,9 +1,9 @@
 import React from 'react'
 import Wrapper from '../../../components/Wrapper'
-import { Text } from '../../../components/Themed'
 import styles from '../style'
 import ItemAlumno from '../../../components/ItemAlumno'
 import { FlatList } from 'react-native'
+import { FAB } from 'react-native-paper'
 
 const DATA = [
   {
@@ -36,6 +36,18 @@ const DATA = [
     grado: '1er Grado',
     edad: '6',
   },
+  {
+    id: '6',
+    name: 'Miranda Marquez',
+    grado: '1er Grado',
+    edad: '6',
+  },
+  {
+    id: '7',
+    name: 'Maria Pinto',
+    grado: '1er Grado',
+    edad: '6',
+  },
 ];
 
 const Alumnos = (props: any) => {
@@ -47,8 +59,8 @@ const Alumnos = (props: any) => {
     });
   }
 
-  const renderItem = (alumno:any) => {
-    return(<ItemAlumno item={alumno.item} onSelect={navigateToDetail} />)
+  const renderItem = (alumno: any) => {
+    return (<ItemAlumno item={alumno.item} onSelect={navigateToDetail} />)
   }
 
   return (
@@ -57,6 +69,11 @@ const Alumnos = (props: any) => {
         data={DATA}
         renderItem={renderItem}
         keyExtractor={item => item.id}
+      />
+      <FAB
+        icon="plus"
+        style={styles.fab}
+        onPress={() => console.log('Pressed')}
       />
     </Wrapper>
   )
