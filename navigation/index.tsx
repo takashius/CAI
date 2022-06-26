@@ -13,9 +13,13 @@ import { ColorSchemeName, Pressable } from 'react-native';
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
-import TabOneScreen from '../screens/TabOneScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
 import Login from '../screens/Auth/Login';
+
+//IMPORT SCREENS TAREAS
+import Alumnos from '../screens/Tareas/Alumnos';
+import Maestras from '../screens/Tareas/Maestras';
+import FormAlumnos from '../screens/Tareas/Alumnos/form';
+import DetailAlumnos from '../screens/Tareas/Alumnos/detail';
 
 import DrawerCustom from './DrawerCustom';
 
@@ -54,17 +58,19 @@ function RootNavigator() {
 const Drawer = createDrawerNavigator();
 
 function DrawerNavigation() {
-    return (
-        <Drawer.Navigator 
-        initialRouteName="Home"
-        screenOptions={{
-            headerShown:false,
-        }}
-        drawerContent={props => <DrawerCustom {...props} />}
-        >
-            <Drawer.Screen name="Home" component={BottomTabNavigator} />
-        </Drawer.Navigator>
-    )
+  return (
+    <Drawer.Navigator
+      initialRouteName="Home"
+      screenOptions={{
+        headerShown: false,
+      }}
+      drawerContent={props => <DrawerCustom {...props} />}
+    >
+      <Drawer.Screen name="Home" component={BottomTabNavigator} />
+      <Drawer.Screen name="DetailAlumnos" component={DetailAlumnos} />
+      <Drawer.Screen name="FormAlumnos" component={FormAlumnos} />
+    </Drawer.Navigator>
+  )
 }
 
 /**
@@ -78,7 +84,7 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="TabOne"
+      initialRouteName="Alumnos"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
         tabBarStyle: {
@@ -89,33 +95,19 @@ function BottomTabNavigator() {
         }
       }}>
       <BottomTab.Screen
-        name="TabOne"
-        component={TabOneScreen}
-        options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
+        name="Alumnos"
+        component={Alumnos}
+        options={({ navigation }: RootTabScreenProps<'Alumnos'>) => ({
           headerShown: false,
-          title: 'Tab One',
+          title: 'Alumnos',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate('Modal')}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}>
-              <FontAwesome
-                name="info-circle"
-                size={25}
-                color={Colors[colorScheme].text}
-                style={{ marginRight: 15 }}
-              />
-            </Pressable>
-          ),
         })}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoScreen}
+        name="Maestras"
+        component={Maestras}
         options={{
-          title: 'Tab Two',
+          title: 'Maestras',
           headerShown: false,
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
