@@ -1,5 +1,7 @@
 const tintColorLight = '#2f95dc';
 const tintColorDark = '#fff';
+const colorPrincipal = '#5555be';
+const colorSecundario = '#dadbfc';
 
 export default {
   light: {
@@ -16,4 +18,12 @@ export default {
     tabIconDefault: '#ccc',
     tabIconSelected: tintColorDark,
   },
+  cai:{
+    primary: colorPrincipal,
+    secundary: colorSecundario,
+    background:{
+      white: '#FFF'
+    },
+    white: '#FFF'
+  }
 };

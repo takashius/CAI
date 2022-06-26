@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../constants/Colors";
 
 const styles = StyleSheet.create({
   menu: {
@@ -12,7 +13,7 @@ const styles = StyleSheet.create({
   },
   titleText: {
     fontSize: 40,
-    color: "#522289",
+    color: Colors.cai.primary,
     fontFamily: "RobotoBold",
   },
   subTitle: {
@@ -21,10 +22,10 @@ const styles = StyleSheet.create({
     paddingRight: 80,
     lineHeight: 22,
     fontFamily: "RobotoRegular",
-    color: "#a2a2db",
+    color: Colors.cai.secundary,
   },
   content: {
-    backgroundColor: "#FFF",
+    backgroundColor: Colors.cai.background.white,
     borderRadius: 40,
     paddingVertical: 10,
     paddingHorizontal: 20,
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
     padding: 16
   },
   navigationContainer: {
-    backgroundColor: "#D9DAFC",
+    backgroundColor: Colors.cai.primary,
   },
   drawerParagraph: {
     padding: 16,

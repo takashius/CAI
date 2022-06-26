@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native'
+import Colors from '../../constants/Colors';
 
 export default styles = StyleSheet.create({
     container: {
         marginBottom:10,
-        backgroundColor: '#dadafc',
+        backgroundColor: Colors.cai.secundary,
         borderWidth:0
     },
     content:{
