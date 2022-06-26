@@ -40,11 +40,22 @@ const DATA = [
 
 const Alumnos = (props: any) => {
   const { navigation } = props;
+
+  const navigateToDetail = (item: any) => {
+    navigation.navigate('DetailAlumnos', {
+      warehouseId: item.id,
+    });
+  }
+
+  const renderItem = (alumno:any) => {
+    return(<ItemAlumno item={alumno.item} onSelect={navigateToDetail} />)
+  }
+
   return (
     <Wrapper title={'Alumnos'} subtitle2={'Lorem ipsun dolor sit ammet'} navigation={navigation}>
       <FlatList
         data={DATA}
-        renderItem={ItemAlumno}
+        renderItem={renderItem}
         keyExtractor={item => item.id}
       />
     </Wrapper>
