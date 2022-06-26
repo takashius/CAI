@@ -4,6 +4,7 @@
  *
  */
 import { FontAwesome } from '@expo/vector-icons';
+import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -87,6 +88,7 @@ function BottomTabNavigator() {
       initialRouteName="Alumnos"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
+        tabBarInactiveTintColor: Colors[colorScheme].tabIconDefault,
         tabBarStyle: {
           backgroundColor: 'transparent',
           position: 'absolute',
@@ -100,7 +102,7 @@ function BottomTabNavigator() {
         options={({ navigation }: RootTabScreenProps<'Alumnos'>) => ({
           headerShown: false,
           title: 'Alumnos',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="account" color={color} />,
         })}
       />
       <BottomTab.Screen
@@ -109,19 +111,17 @@ function BottomTabNavigator() {
         options={{
           title: 'Maestras',
           headerShown: false,
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="face-woman" color={color} />,
         }}
       />
     </BottomTab.Navigator>
   );
 }
 
-/**
- * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
- */
 function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
+  name: string;
   color: string;
 }) {
-  return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
+  const {name, color} = props;
+  return <Icon size={30} name={name} color={color} />
 }

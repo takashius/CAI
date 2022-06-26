@@ -5,31 +5,29 @@ const styles = StyleSheet.create({
   menu: {
     flexDirection: "row",
     marginTop: 40,
-    alignItems: "center",
-    paddingHorizontal: 40,
+    paddingHorizontal: 30,
   },
   title: {
-    paddingHorizontal: 40
+    flex:1,
+    paddingLeft:10,
   },
   titleText: {
-    fontSize: 40,
+    fontSize: 20,
     color: Colors.cai.primary,
     fontFamily: "RobotoBold",
   },
   subTitle: {
-    fontSize: 15,
-    paddingVertical: 10,
-    paddingRight: 80,
+    fontSize: 14,
     lineHeight: 22,
     fontFamily: "RobotoRegular",
-    color: Colors.cai.secundary,
+    color: Colors.cai.primary,
   },
   content: {
     backgroundColor: Colors.cai.background.white,
     borderRadius: 40,
     paddingVertical: 10,
     paddingHorizontal: 20,
-    marginTop: 30,
+    marginTop: 20,
     marginLeft:15,
     marginRight:15,
     marginBottom:50,

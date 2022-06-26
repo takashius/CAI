@@ -52,7 +52,7 @@ const Alumnos = (props: any) => {
   }
 
   return (
-    <Wrapper title={'Alumnos'} subtitle2={'Lorem ipsun dolor sit ammet'} navigation={navigation}>
+    <Wrapper title={'Alumnos'} subtitle={'Lorem ipsun dolor sit ammet'} navigation={navigation}>
       <FlatList
         data={DATA}
         renderItem={renderItem}
