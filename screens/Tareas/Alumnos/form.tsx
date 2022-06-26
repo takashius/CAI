@@ -2,14 +2,18 @@ import React, { useState, useEffect } from 'react'
 import Wrapper from '../../../components/Wrapper'
 import { ScrollView, View, TouchableOpacity } from 'react-native'
 import styles from '../style'
+import Colors from '../../../constants/Colors'
 import { DateTimePickerAndroid } from '@react-native-community/datetimepicker'
 import { TextInput } from 'react-native-paper'
 import Moment from 'moment'
+import SelectDropdown from 'react-native-select-dropdown'
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
 
 const FormAlumnos = (props: any) => {
   const { navigation } = props;
   const [date, setDate] = useState(new Date());
   const [fecha, setFecha] = useState('');
+  const genero = ["Femenino", "Masculino"]
   Moment.locale('es-ve');
 
   const save = () => {
@@ -31,7 +35,7 @@ const FormAlumnos = (props: any) => {
       value: date,
       onChange,
       mode: 'date',
-      display:'calendar'
+      display: 'calendar'
     })
   }
 
@@ -49,12 +53,16 @@ const FormAlumnos = (props: any) => {
             label="Nombre"
             mode='outlined'
             autoComplete='name'
+            style={styles.textImput}
+            outlineColor={Colors.cai.primary}
           />
 
           <TextInput
             label="Apellido"
             mode='outlined'
             autoComplete='name-family'
+            style={styles.textImput}
+            outlineColor={Colors.cai.primary}
           />
 
           <TextInput
@@ -62,6 +70,8 @@ const FormAlumnos = (props: any) => {
             mode='outlined'
             autoComplete='email'
             keyboardType='email-address'
+            style={styles.textImput}
+            outlineColor={Colors.cai.primary}
           />
 
           <TextInput
@@ -69,17 +79,44 @@ const FormAlumnos = (props: any) => {
             mode='outlined'
             autoComplete='tel'
             keyboardType='phone-pad'
+            style={styles.textImput}
+            outlineColor={Colors.cai.primary}
           />
-          <TouchableOpacity onPress={() =>{showDatepicker()}}>
+          <TouchableOpacity onPress={() => { showDatepicker() }}>
             <TextInput
               label="Fecha de Nacimiento"
               mode='outlined'
               editable={false}
               value={fecha}
+              style={styles.textImput}
+              outlineColor={Colors.cai.primary}
               onPressIn={() => { showDatepicker() }}
               right={<TextInput.Icon name="calendar" />}
             />
           </TouchableOpacity>
+
+          <SelectDropdown
+            data={genero}
+            defaultButtonText='Genero'
+            dropdownIconPosition='right'
+            onSelect={(selectedItem:any, index:any) => {
+              console.log(selectedItem, index)
+            }}
+            buttonTextAfterSelection={(selectedItem:any, index:any) => {
+              return selectedItem
+            }}
+            rowTextForSelection={(item:any, index:any) => {
+              return item
+            }}
+            buttonStyle={styles.dropdown}
+            buttonTextStyle={styles.dropdownBtnTxt}
+            rowStyle={styles.dropdownRowStyle}
+            dropdownStyle={styles.dropdownDropdownStyle}
+            rowTextStyle={styles.dropdownRowTxt}
+            renderDropdownIcon={isOpened => {
+              return <FontAwesome name={isOpened ? 'chevron-up' : 'chevron-down'} color={Colors.cai.gray} size={18} />;
+            }}
+          />
 
         </View>
       </ScrollView>

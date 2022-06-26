@@ -3,6 +3,7 @@ const tintColorDark = '#fff';
 const colorPrincipal = '#5555be';
 const colorSecundario = '#dadbfc';
 const colorButton = '#a2a2db';
+const colorGrey = '#757575'
 
 export default {
   light: {
@@ -26,6 +27,7 @@ export default {
       white: '#FFF'
     },
     white: '#FFF',
+    gray: colorGrey,
     button: colorButton,
   }
 };
