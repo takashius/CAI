@@ -56,4 +56,31 @@ export default styles = StyleSheet.create({
         backgroundColor: Colors.cai.primary, 
         borderBottomColor: Colors.cai.secundary
     },
+    //STYLES DETAIL
+    detailTitle: {
+        marginVertical: 15,
+        color:Colors.cai.primary,
+    },
+    detailCard: {
+        marginTop: 15,
+        backgroundColor:Colors.cai.secundary,
+    },
+    detailCardTitle: {
+        color: Colors.cai.primary
+    },
+    detailCardSubtitle: {
+        color: Colors.cai.primary,
+        fontSize: 14
+    },
+    detailCardContent: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    detailCardColumn: {
+        color: Colors.cai.primary,
+        flex: 1,
+        fontSize: 14,
+        marginLeft: 5,
+        marginTop:5
+    }
 });
