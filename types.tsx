@@ -26,8 +26,14 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> = Nati
 >;
 
 export type RootTabParamList = {
-  Alumnos: undefined;
+  AlumnosTab: NavigatorScreenParams<AlumnosStackParamList>;
   Maestras: undefined;
+};
+
+export type AlumnosStackParamList = {
+  Alumnos: undefined;
+  DetailAlumnos: undefined;
+  FormAlumnos: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<

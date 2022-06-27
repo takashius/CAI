@@ -1,9 +1,3 @@
-/**
- * If you are not familiar with React Navigation, refer to the "Fundamentals" guide:
- * https://reactnavigation.org/docs/getting-started
- *
- */
-import { FontAwesome } from '@expo/vector-icons';
 import Icon from "@expo/vector-icons/MaterialCommunityIcons";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
@@ -24,7 +18,7 @@ import DetailAlumnos from '../screens/Tareas/Alumnos/detail';
 
 import DrawerCustom from './DrawerCustom';
 
-import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
+import { RootStackParamList, RootTabParamList, AlumnosStackParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
@@ -64,12 +58,24 @@ function DrawerNavigation() {
       initialRouteName="Home"
       screenOptions={{
         headerShown: false,
+        drawerLabelStyle: {
+          marginLeft: -25,
+          fontSize: 15
+        },
+        drawerActiveBackgroundColor: Colors.cai.primary,
+        drawerActiveTintColor: Colors.cai.secundary
       }}
       drawerContent={props => <DrawerCustom {...props} />}
     >
-      <Drawer.Screen name="Home" component={BottomTabNavigator} />
-      <Drawer.Screen name="DetailAlumnos" component={DetailAlumnos} />
-      <Drawer.Screen name="FormAlumnos" component={FormAlumnos} />
+      <Drawer.Screen
+        name="Tareas Dirigidas"
+        component={BottomTabNavigator}
+        options={{
+          drawerIcon: ({ color }) => (
+            <Icon size={30} name='school-outline' color={color} />
+          )
+        }}
+      />
     </Drawer.Navigator>
   )
 }
@@ -85,7 +91,7 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="Alumnos"
+      initialRouteName="AlumnosTab"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
         tabBarInactiveTintColor: Colors[colorScheme].tabIconDefault,
@@ -97,9 +103,9 @@ function BottomTabNavigator() {
         }
       }}>
       <BottomTab.Screen
-        name="Alumnos"
-        component={Alumnos}
-        options={({ navigation }: RootTabScreenProps<'Alumnos'>) => ({
+        name="AlumnosTab"
+        component={AlumnosStackNavigator}
+        options={({
           headerShown: false,
           title: 'Alumnos',
           tabBarIcon: ({ color }) => <TabBarIcon name="account" color={color} />,
@@ -118,10 +124,35 @@ function BottomTabNavigator() {
   );
 }
 
+const TareasStack = createNativeStackNavigator<AlumnosStackParamList>();
+
+function AlumnosStackNavigator() {
+
+  return (
+    <TareasStack.Navigator>
+      <TareasStack.Screen
+        name="Alumnos"
+        component={Alumnos}
+        options={{ headerShown: false }}
+      />
+      <TareasStack.Screen
+        name="DetailAlumnos"
+        component={DetailAlumnos}
+        options={{ headerShown: false }}
+      />
+      <TareasStack.Screen
+        name="FormAlumnos"
+        component={FormAlumnos}
+        options={{ headerShown: false }}
+      />
+    </TareasStack.Navigator>
+  );
+}
+
 function TabBarIcon(props: {
   name: string;
   color: string;
 }) {
-  const {name, color} = props;
+  const { name, color } = props;
   return <Icon size={30} name={name} color={color} />
 }

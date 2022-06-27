@@ -100,7 +100,7 @@ const FormAlumnos = (props: any) => {
             defaultButtonText='Genero'
             dropdownIconPosition='right'
             onSelect={(selectedItem:any, index:any) => {
-              console.log(selectedItem, index)
+              //console.log(selectedItem, index)
             }}
             buttonTextAfterSelection={(selectedItem:any, index:any) => {
               return selectedItem
