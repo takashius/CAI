@@ -19,13 +19,16 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.erdesarrollo.cai"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.erdesarrollo.cai",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
